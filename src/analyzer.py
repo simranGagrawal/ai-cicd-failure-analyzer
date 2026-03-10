@@ -28,7 +28,7 @@ Errors:
 """
 
     response = requests.post(
-        "http://127.0.0.1:11434/api/generate",
+        "http://host.docker.internal:11434/api/generate",
         json={
             "model": "llama3",
             "prompt": prompt,
