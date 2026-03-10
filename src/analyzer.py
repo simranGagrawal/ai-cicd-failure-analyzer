@@ -1,10 +1,11 @@
-import re
+import requests
+# Path to log file
+log_file = "logs/sample_pipeline.log"
 
-log_file = "../logs/sample_pipeline.log"
 
 def extract_errors(file):
     errors = []
-    
+
     with open(file, "r") as f:
         for line in f:
             if "ERROR" in line or "ERR!" in line:
@@ -13,14 +14,43 @@ def extract_errors(file):
     return errors
 
 
-def summarize_errors(errors):
-    print("\nCI/CD Failure Analysis")
-    print("----------------------")
+def analyze_with_ai(errors):
 
-    for error in errors:
-        print("Detected Issue:", error)
+    prompt = f"""
+You are an experienced DevOps engineer.
 
+Analyze the following CI/CD pipeline errors and provide:
+1. Root cause
+2. Suggested fix
+
+Errors:
+{errors}
+"""
+
+    response = requests.post(
+        "http://127.0.0.1:11434/api/generate",
+        json={
+            "model": "llama3",
+            "prompt": prompt,
+            "stream": False
+        }
+    )
+
+    data = response.json()
+
+    return data.get("response", "No response from AI")
 
 if __name__ == "__main__":
+
     errors = extract_errors(log_file)
-    summarize_errors(errors)
+
+    print("\nDetected Errors:")
+    print(errors)
+
+    print("\nAI Analysis:")
+
+    if errors:
+        analysis = analyze_with_ai(errors)
+        print(analysis)
+    else:
+        print("No errors detected in logs.")
