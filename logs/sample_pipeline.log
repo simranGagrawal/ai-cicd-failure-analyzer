@@ -1,0 +1,8 @@
+[INFO] Starting CI pipeline...
+[INFO] Installing dependencies...
+
+ERROR: Failed to install package 'express'
+npm ERR! code ERESOLVE
+npm ERR! dependency conflict detected
+
+[INFO] Build failed
