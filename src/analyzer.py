@@ -1,6 +1,5 @@
 import requests
-# Path to log file
-log_file = "logs/sample_pipeline.log"
+import sys
 
 
 def extract_errors(file):
@@ -20,6 +19,7 @@ def analyze_with_ai(errors):
 You are an experienced DevOps engineer.
 
 Analyze the following CI/CD pipeline errors and provide:
+
 1. Root cause
 2. Suggested fix
 
@@ -40,7 +40,14 @@ Errors:
 
     return data.get("response", "No response from AI")
 
+
 if __name__ == "__main__":
+
+    if len(sys.argv) < 2:
+        print("Usage: python analyzer.py <log_file>")
+        sys.exit(1)
+
+    log_file = sys.argv[1]
 
     errors = extract_errors(log_file)
 
