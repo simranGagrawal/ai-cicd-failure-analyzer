@@ -1,5 +1,5 @@
 # AI-Powered CI/CD Failure Analyzer
-
+[![CI Pipeline](https://github.com/simranGagrawal/ai-cicd-failure-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/simranGagrawal/ai-cicd-failure-analyzer/actions/workflows/ci.yml)
 A Python tool that analyzes CI/CD pipeline logs and uses a local LLM (Ollama + Llama3) to automatically generate root cause analysis and suggested fixes for build failures.
 
 ## Problem
