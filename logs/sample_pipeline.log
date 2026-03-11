@@ -1,8 +1,12 @@
-[INFO] Starting CI pipeline...
+[INFO] Starting CI/CD pipeline...
 [INFO] Installing dependencies...
+
+npm WARN deprecated package-x@1.0.0
 
 ERROR: Failed to install package 'express'
 npm ERR! code ERESOLVE
 npm ERR! dependency conflict detected
+npm ERR! Fix the upstream dependency conflict
 
 [INFO] Build failed
+[INFO] Pipeline terminated
