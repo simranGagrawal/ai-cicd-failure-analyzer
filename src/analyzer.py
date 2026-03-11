@@ -1,3 +1,4 @@
+import os
 import requests
 import sys
 
@@ -15,11 +16,14 @@ def extract_errors(file):
 
 def analyze_with_ai(errors):
 
+    # Skip AI call in CI environment
+    if os.getenv("CI"):
+        return "AI analysis skipped in CI environment"
+
     prompt = f"""
 You are an experienced DevOps engineer.
 
 Analyze the following CI/CD pipeline errors and provide:
-
 1. Root cause
 2. Suggested fix
 
@@ -37,7 +41,6 @@ Errors:
     )
 
     data = response.json()
-
     return data.get("response", "No response from AI")
 
 
