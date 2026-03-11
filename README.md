@@ -2,7 +2,7 @@
 
 [![CI Pipeline](https://github.com/simranGagrawal/ai-cicd-failure-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/simranGagrawal/ai-cicd-failure-analyzer/actions/workflows/ci.yml)
 
->>>>>>> f1cbcc6 (Improve README Formatting and Add demo screenshot to README)
+> f1cbcc6 (Improve README Formatting and Add demo screenshot to README)
 A Python tool that analyzes CI/CD pipeline logs and uses a local LLM (Ollama + Llama3) to automatically generate root cause analysis and suggested fixes for build failures.
 
 ---
