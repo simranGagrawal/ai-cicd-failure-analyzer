@@ -103,18 +103,20 @@ Check package.json versions or run npm install with --legacy-peer-deps.
 ```bash
 ollama serve
 ```
-2. Run the analyzer
-python src/analyzer.py logs/sample_pipeline.log
-🔗 Future Improvements
-Slack/Email alerts for failures
-Monitoring integration (Prometheus + Grafana)
-Support multiple CI/CD log formats
-Enhance AI failure analysis
-🎥 Demo
-![Demo](assets/demo.png) 
-![Demo](assets/failed-pipeline.png) 
-![Demo](assets/sucsessful-pipeline.png)
-Below is an example of the analyzer detecting CI/CD errors and generating AI-based root cause analysis.
+##  Run the analyzer
+python src/analyzer.py 
+logs/sample_pipeline.log
 
+🔗 Future Improvements
+1. Slack/Email alerts for failures
+2. Monitoring integration (Prometheus + Grafana)
+3. Support multiple CI/CD log formats
+4. Enhance AI failure analysis
+
+Below is an example of the analyzer detecting CI/CD errors and generating AI-based root cause analysis.
+🎥 Demo
+![Demo](assets/demo.png)
+![Demo](assets/failed-pipeline.png)
+![Demo](assets/sucsessful-pipeline.png)
 ---
 
