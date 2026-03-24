@@ -1,58 +1,79 @@
-# AI-Powered CI/CD Failure Analyzer
+# 🚀 AI-Powered DevSecOps Pipeline (CI/CD Failure Analyzer)
 
 [![CI Pipeline](https://github.com/simranGagrawal/ai-cicd-failure-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/simranGagrawal/ai-cicd-failure-analyzer/actions/workflows/ci.yml)
 
-> f1cbcc6 (Improve README Formatting and Add demo screenshot to README)
-A Python tool that analyzes CI/CD pipeline logs and uses a local LLM (Ollama + Llama3) to automatically generate root cause analysis and suggested fixes for build failures.
+A Python-based tool that analyzes CI/CD pipeline logs using a local LLM (Ollama + Llama3) and is integrated into a **DevSecOps pipeline** to automate both failure analysis and security validation.
 
 ---
 
-## Problem
+## 🔴 Problem
 
-CI/CD pipelines often fail due to dependency conflicts, configuration issues, or build errors. Engineers usually need to manually read logs to understand the root cause.
-
----
-
-## Solution
-
-This tool parses CI/CD logs, extracts error messages, and sends them to a locally hosted LLM to generate automated troubleshooting suggestions.
+CI/CD pipelines often fail due to dependency conflicts, configuration issues, or build errors.  
+Additionally, applications are frequently deployed without proper security checks, increasing the risk of vulnerabilities reaching production.
 
 ---
 
-## Architecture
+## 🟢 Solution
 
-```
-CI/CD Logs
-     ↓
-Python Log Parser
-     ↓
-Ollama Local API
-     ↓
-LLM Analysis (Llama3)
-     ↓
-Root Cause + Suggested Fix
-```
+This project combines:
 
----
+- 🤖 **AI-based CI/CD failure analysis**
+- 🔐 **DevSecOps pipeline with security scanning**
 
-## Tech Stack
-
-- Python
-- Requests
-- Ollama
-- Llama3
-- Docker
-- GitHub Actions
+It:
+- Parses CI/CD logs and identifies errors  
+- Uses a local LLM to generate root cause and fixes  
+- Builds application using Docker  
+- Scans container images for vulnerabilities using Trivy  
+- **Blocks deployment if HIGH/CRITICAL vulnerabilities are detected**
 
 ---
 
-## Example Output
+## 🏗️ Architecture
+GitHub Repo
+↓
+Jenkins Pipeline
+↓
+Docker Build
+↓
+Trivy Security Scan
+↓
+Fail/Pass (Security Gate)
+↓
+AI Log Analysis (Llama3)
 
-```
+---
+
+## ⚙️ Tech Stack
+
+- Python  
+- Requests  
+- Ollama (Local LLM)  
+- Llama3  
+- Docker  
+- Jenkins  
+- Trivy  
+- GitHub Actions  
+
+---
+
+## 🔥 Key Features
+
+- Automated CI/CD pipeline using Jenkins  
+- Docker-based application build  
+- Integrated Trivy for vulnerability scanning  
+- **Security Gate:** Pipeline fails on HIGH/CRITICAL vulnerabilities  
+- AI-powered CI/CD failure log analysis  
+- End-to-end DevSecOps workflow  
+
+---
+
+## 📊 Example Output
+
 Detected Errors:
 ["ERROR: Failed to install package 'express'",
- "npm ERR! code ERESOLVE",
- "npm ERR! dependency conflict detected"]
+"npm ERR! code ERESOLVE",
+"npm ERR! dependency conflict detected"]
 
 AI Analysis:
 
@@ -61,35 +82,47 @@ Dependency conflict detected during npm installation.
 
 Suggested Fix:
 Check package.json versions or run npm install with --legacy-peer-deps.
-```
 
 ---
 
-## How to Run
+## 🚀 Pipeline Workflow
+
+1. Code pushed to GitHub  
+2. Jenkins triggers pipeline  
+3. Docker image is built  
+4. Trivy scans the image  
+5. Pipeline fails if vulnerabilities detected  
+6. AI analyzer helps debug CI/CD failures  
+
+---
+
+## ▶️ How to Run (AI Analyzer)
 
 ### 1. Start Ollama
 
 ```bash
 ollama serve
-```
-
-### 2. Run the analyzer
-
-```bash
+2. Run the analyzer
 python src/analyzer.py logs/sample_pipeline.log
-```
+🔗 Future Improvements
+Slack/Email alerts for failures
+Monitoring integration (Prometheus + Grafana)
+Support multiple CI/CD log formats
+Enhance AI failure analysis
+🎥 Demo
+![Demo](assets/demo.png) 
+![Demo](assets/failed-pipeline.png) 
+![Demo](assets/sucsessful-pipeline.png)
+Below is an example of the analyzer detecting CI/CD errors and generating AI-based root cause analysis.
 
 ---
 
-## Future Improvements
+# 🎯 What changed (important)
 
-- Support multiple log formats
-- CI/CD pipeline integration
-- Docker networking improvements
-- Slack alert integration
+You now have:
 
-## Demo
-
-Below is an example of the analyzer detecting CI/CD errors and generating AI-based root cause analysis.
-
-![Demo](assets/demo.png)
+```text
+AI Project ✅
++ DevSecOps Pipeline ✅
++ Security Gate ✅
++ Proper Architecture ✅
