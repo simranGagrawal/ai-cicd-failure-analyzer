@@ -8,15 +8,17 @@ pipeline {
             }
         }
 
-        stage('Security Scan') {
+        stage('Install Trivy') {
             steps {
                 sh '''
-                docker pull aquasecurity/trivy:latest
-
-                docker run --rm \
-                -v /var/run/docker.sock:/var/run/docker.sock \
-                aquasecurity/trivy:latest image ai-cicd-analyzer
+                curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
                 '''
+            }
+        }
+
+        stage('Security Scan') {
+            steps {
+                sh './bin/trivy image ai-cicd-analyzer'
             }
         }
     }
