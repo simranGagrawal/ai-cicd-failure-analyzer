@@ -1,17 +1,17 @@
 pipeline {
-    agent any 
+    agent any
 
     stages {
         stage('Clone') {
             steps {
-                echo 'Cloning respository...'
+                echo 'Cloning repository...'
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Buildining application...'
+                sh 'docker build -t ai-cicd-analyzer .'
             }
         }
-     }
+    }
 }
