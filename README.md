@@ -102,6 +102,7 @@ Check package.json versions or run npm install with --legacy-peer-deps.
 
 ```bash
 ollama serve
+```
 2. Run the analyzer
 python src/analyzer.py logs/sample_pipeline.log
 🔗 Future Improvements
@@ -117,12 +118,3 @@ Below is an example of the analyzer detecting CI/CD errors and generating AI-bas
 
 ---
 
-# 🎯 What changed (important)
-
-You now have:
-
-```text
-AI Project ✅
-+ DevSecOps Pipeline ✅
-+ Security Gate ✅
-+ Proper Architecture ✅
