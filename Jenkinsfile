@@ -18,7 +18,7 @@ pipeline {
 
         stage('Security Scan') {
             steps {
-                sh './bin/trivy image ai-cicd-analyzer'
+                sh './bin/trivy image --exit-code 1 --severity HIGH, CRITICAL ai-cicd-analyzer'
             }
         }
     }
