@@ -10,7 +10,11 @@ pipeline {
 
         stage('Security Scan') {
             steps {
-                sh 'trivy image ai-cicd-analyzer .'
+                sh '''
+                docker run --rm \
+                -v /var/run/docker.sock:/var/run/docker.sock \
+                aquasec/trivy image ai-cicd-analyzer
+                '''
             }
         }
     }
