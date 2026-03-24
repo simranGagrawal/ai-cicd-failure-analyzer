@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                 docker run --rm \
                 -v /var/run/docker.sock:/var/run/docker.sock \
-                aquasecurity/trivy image ai-cicd-analyzer
+                aquasecurity/trivy:0.50.2 image ai-cicd-analyzer
                 '''
             }
         }
